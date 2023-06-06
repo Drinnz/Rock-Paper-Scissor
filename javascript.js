@@ -1,6 +1,3 @@
-# Rock-Paper-Scissor
-
-This is project proposed by The Odin Project.
 function getComputChoice() {
     let j = 0;
     let choice;
@@ -20,50 +17,59 @@ function gameRound() {
 
     playerSelection = playerSelection.toUpperCase();
     computerSelection = computerSelection.toUpperCase();
-    let gameResult ="";
+    let gameResult = "";
     console.log(computerSelection);
     if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
-        gameResult = "You win, Rock beats Scissors.";
-       
+        gameResult = 1;
+
     } else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
-        gameResult = "You lost, Rock beats Scissors";
-       
+        gameResult = 0;
+
     } else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
-        gameResult = "You Win, Paper beats Rock";
-       
+        gameResult = 1;
+
     } else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
-        gameResult = "You lost, scissors beats paper";
-       
+        gameResult = 0;
+
     } else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
-        gameResult = "You Win, Scissors beats Paper";
-    
+        gameResult = 1;
+
     } else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
-        gameResult = "You Lost, Paper beats Rock";
-
-    } else if(playerSelection===computerSelection){
-        gameResult = "Draw";
-
+        gameResult = 0;
+    }
+    else if (playerSelection === computerSelection) {
+        gameResult = 2;
     }
     return gameResult;
 }
 
-function game(){
+
+function game() {
     let l = 0;
     let w = 0;
     let d = 0;
+    let i = 0;
+    let gameResult = "";
     let result = "";
-    for(let i=0;i<5;i++){
-    result = gameRound();
-    if(result==="Draw"){
-        w++;
+    while (i < 5) {
+        result = gameRound();
+        if (result === 1) {
+            w++;
+            i++;
+        } else if (result === 0) {
+            l++;
+            i++;
+        } else d++;
     }
-}
-    return w;
+    if (w > l) {
+        gameResult = `Victories: ${w}, Draws ${d}, Loses: ${l}, You win!`;
+    } else if (w < l) { gameResult = `Victories: ${w}, Draws ${d}, Loses: ${l}, You Lose!`; }
+    else if (w === l) {
+        gameResult = `Victories: ${w}, Draws ${d}, Loses: ${l}, Draw!`
+    }
+    return gameResult;
 }
 
-
-//const playerSelection = prompt("What is your move?", "");
-//const computerSelection = getComputChoice();
 
 
 console.log(game());
