@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="javascript.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+
 </head>
+
 <body>
+
+    <h1 class="title">Rock Paper Scissor</h1>
+    <div class="content-flex">
+        <div class="subtitle">Choose your move:</div>
+        <div class="images-container">
+            <button class="rock-choice" id="rockButton">
+                <img class="image-box" src="asteroid.png">
+            </button>
+            <button class="paper-choice" id="paperButton">
+                <img class="image-box" src="paper1.png">
+            </button>
+            <button class="scissor-choice" id="scissorButton">
+                <img class="image-box" src="scissor1.png">
+            </button>
+        </div>
+        <div class="text-content">
+            <p class="score-title">
+                Score title:
+            </p>
+            <div class="scoreboard">
+                <div class="playerside">
+                    <div class="player">Player:</div>
+                    <div class="scoreplayer" id="playerscore">0</div>
+                </div>
+                <div class="computerside">
+                    <div class="computer">Computer:</div>
+                    <div class="scorecomputer" id="computerscore">0</div>
+                </div>
+            </div>
+            <div class="matchResult" id="matchResult"></div>
+            <div class="result" id="result"></div>
+            <button class="play-again-button" id="resetGameBtn" style="display: none">Play again</button>
+
+        </div>
+    </div>
+    <script src="javascript.js"></script>
 </body>
+
 </html>

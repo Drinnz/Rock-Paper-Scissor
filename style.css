@@ -1,7 +1,153 @@
 *{
-    background-color: black;
-    height: 70vm;
+    background-color: #c79a7b;
+    position: relative;
+    margin: 0;
+
+    font-family: 'Brush Script MT', cursive;
+    min-height: 100%;
 }
 .title{
-    background-color: grey;
+    background-color: #692e06;
+    text-align: center;
+    margin-top:0%;
+    padding:20px;
+    color:white;
+    font-weight: 900;
+    font-size: 2.5em;
+    width:100%;
 }
+.content-flex{
+    display:flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.subtitle{
+    text-align: center;
+    margin-top: 2.2vw;
+    font-size: 200%;
+  font-weight: 700;
+}
+.images-container{
+    display:flex;
+    flex:1;
+    gap:30px;
+    width:70vw;
+
+    align-items: center;
+    justify-content: center;
+}
+button{
+    height:auto;
+    width: 20%;   
+    background-color: #695547;
+    border-radius: 10px;
+    color: #695547;
+    overflow: hidden;
+}
+img{
+    background-color: #695547;
+    margin-bottom: 0px;
+}
+
+button:hover,
+button:hover .image-box {
+    background-color: #544337;
+    color: #544337;
+}
+button:active,
+button:active .image-box{
+    background-color: #3b2f26;
+    color:#3b2f26;
+}
+.image-box{
+    height: 10.7vw;
+    width: 100%;
+}
+.text-content{
+ 
+    display: flex;
+    flex-direction: column;
+    width: 45vw;
+    align-items: center;
+    gap:10px;
+}
+
+.score-title{
+    font-size:200%;
+    font-weight: 700;
+}
+
+.scoreboard{
+    margin-top:20px;
+    display:flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 150%;
+    width: 100%;
+}
+
+.playerside,.computerside{
+ display: flex;
+ flex-direction: column;
+align-items: flex-end;
+}
+.player,.computer{
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    height: 25px;
+    margin-bottom: 0px;
+    overflow: hidden;
+}
+.scorecomputer,.scoreplayer{
+    width: 5rem;
+    height: 1rem;
+}
+.scorecomputer{
+    padding-right: 18px;
+}
+.matchResult{
+    font-size: 90%;
+    font-weight: 600;
+    
+}
+.result{
+    margin-top: 25px;
+    font-weight: 700;
+    font-size: 110%;
+}
+
+.play-again-button{
+ margin-top: 30px;
+ background-color:#b08e6f;
+}
+.play-again-button:hover{
+    background-color: #8c7057;
+}
+.play-again-button:active{
+    background-color: #755e49;
+}
+
+
+@media (max-width: 550px) {
+    .title {
+      font-size: 35px;
+    }
+    .content-flex{
+        margin-top: 10%;
+    }
+    button {
+      gap: 5px;
+      width: 120px;
+      height: 120px;
+    }
+    .scoreboard{
+        font-size:120%;
+    }
+    .text-content{
+        width: 350px;
+    }
+  }

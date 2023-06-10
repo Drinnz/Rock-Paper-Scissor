@@ -1,70 +1,109 @@
 # Rock-Paper-Scissor
 
 This is project proposed by The Odin Project.
-function getComputChoice() {
+
+const scorePlayer = document.getElementById("playerscore")
+const scoreComputer = document.getElementById("computerscore")
+const rockBtn = document.getElementById('rockButton');
+const paperBtn = document.getElementById('paperButton');
+const scissorBtn = document.getElementById('scissorButton');
+
+
+function getComputerChoice() {
     let j = 0;
     let choice;
     let odd = Math.floor(Math.random() * 100) + 1;
     if (odd >= 0 && odd <= 33) {
-        choice = "Rock";
+        choice = "ROCK";
     } else if (odd >= 34 && odd <= 67) {
-        choice = "Paper";
-    } else choice = "Scissors";
+        choice = "PAPER";
+    } else choice = "SCISSORS";
 
     return choice;
 }
 
+
 function gameRound() {
-    playerSelection = prompt("What is your move?", "");
-    computerSelection = getComputChoice();
 
-    playerSelection = playerSelection.toUpperCase();
-    computerSelection = computerSelection.toUpperCase();
-    let gameResult ="";
-    console.log(computerSelection);
-    if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
-        gameResult = "You win, Rock beats Scissors.";
-       
-    } else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
-        gameResult = "You lost, Rock beats Scissors";
-       
-    } else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
-        gameResult = "You Win, Paper beats Rock";
-       
-    } else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
-        gameResult = "You lost, scissors beats paper";
-       
-    } else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
-        gameResult = "You Win, Scissors beats Paper";
+    let playerSelection;
     
-    } else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
-        gameResult = "You Lost, Paper beats Rock";
+    let computSelection = getComputerChoice();
 
-    } else if(playerSelection===computerSelection){
-        gameResult = "Draw";
+    rockBtn.addEventListener("click", function() {
+        playerSelection = "ROCK";
+        handleSelection();
+    });
+    paperBtn.addEventListener("click", function() {
+        playerSelection = "PAPER";
+        handleSelection();
+    });
+    scissorBtn.addEventListener("click", function() {
+        playerSelection = "SCISSOR";
+        handleSelection();
+    });
 
+    function handleSelection() {
+        // Lógica que depende de playerSelection
+        console.log(playerSelection);
+        console.log(computSelection);
+        checkResult();
     }
-    return gameResult;
-}
+    function checkResult(){ 
+    let gameResult;
 
-function game(){
+    if (playerSelection === "ROCK" && computSelection === "SCISSOR") {
+        gameResult = 1;
+        
+
+    } else if (playerSelection === "SCISSOR" && computSelection === "ROCK") {
+        gameResult = 2;
+        
+
+    } else if (playerSelection === "PAPER" && computSelection === "ROCK") {
+        gameResult = 1;
+    
+
+    } else if (playerSelection === "PAPER" && computSelection === "SCISSOR") {
+        gameResult = 2;
+       
+
+    } else if (playerSelection === "SCISSOR" && computSelection === "PAPER") {
+        gameResult = 1;
+      
+
+    } else if (playerSelection === "ROCK" && computSelection === "PAPER") {
+        gameResult = 2;
+       
+    }
+    else if (playerSelection === computSelection) {
+        gameResult = 3;
+}
+console.log(gameResult);
+game();
+
+function game() {
     let l = 0;
     let w = 0;
     let d = 0;
-    let result = "";
-    for(let i=0;i<5;i++){
-    result = gameRound();
-    if(result==="Draw"){
-        w++;
+    let i = 0;
+    
+      while(i<5){ 
+        if (gameResult === 1) {
+            w++;
+            i++;
+            scorePlayer.textContent=`${w}`;
+            
+        } else if (gameResult === 2) {
+            l++;
+            i++;
+            scoreComputer.textContent=`${l}`;
+        } else d++;
+     }
+
+   return i;
+
+
     }
 }
-    return w;
 }
-
-
-//const playerSelection = prompt("What is your move?", "");
-//const computerSelection = getComputChoice();
-
-
-console.log(game());
-
+gameRound();
