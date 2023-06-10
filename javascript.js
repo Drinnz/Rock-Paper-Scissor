@@ -15,7 +15,7 @@ function getComputerChoice() {
         choice = "ROCK";
     } else if (odd >= 34 && odd <= 67) {
         choice = "PAPER";
-    } else choice = "SCISSOR";
+    } else choice = "SCISSORS";
 
     return choice;
 }
@@ -30,7 +30,7 @@ function getPlayerMove() {
             resolve("PAPER");
         });
         scissorBtn.addEventListener("click", function () {
-            resolve("SCISSOR");
+            resolve("SCISSORS");
         });
     });
 }
@@ -40,11 +40,11 @@ function getPlayerMove() {
 
 function checkResult(playerSelection, computSelection) {
     let gameResult;
-    if (playerSelection === "ROCK" && computSelection === "SCISSOR") {
+    if (playerSelection === "ROCK" && computSelection === "SCISSORS") {
         gameResult = 1;
 
 
-    } else if (playerSelection === "SCISSOR" && computSelection === "ROCK") {
+    } else if (playerSelection === "SCISSORS" && computSelection === "ROCK") {
         gameResult = 2;
 
 
@@ -52,11 +52,11 @@ function checkResult(playerSelection, computSelection) {
         gameResult = 1;
 
 
-    } else if (playerSelection === "PAPER" && computSelection === "SCISSOR") {
+    } else if (playerSelection === "PAPER" && computSelection === "SCISSORS") {
         gameResult = 2;
 
 
-    } else if (playerSelection === "SCISSOR" && computSelection === "PAPER") {
+    } else if (playerSelection === "SCISSORS" && computSelection === "PAPER") {
         gameResult = 1;
 
 
